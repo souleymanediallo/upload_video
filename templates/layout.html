@@ -10,5 +10,29 @@
     {% block content %}
     {% endblock %}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('.delete-video').on('click', function(){
+            var videoName = $(this).data('name');
+            var $videoContainer = $(this).closest('div');
+            $.ajax({
+                type: 'POST',
+                url: '/delete_video/',
+                data: {
+                    'video_name': videoName,
+                    'csrfmiddlewaretoken': '{{ csrf_token }}'
+                },
+                success: function(response){
+                    console.log(response.message);
+                    $videoContainer.hide();
+                },
+                error: function(xhr, errmsg, err){
+                    console.log(xhr.status + ": " + xhr.responseText);
+                }
+            });
+        });
+    });
+</script>
   </body>
 </html>

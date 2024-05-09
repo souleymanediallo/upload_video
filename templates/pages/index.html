@@ -13,4 +13,21 @@
     <button type="submit" class="btn btn-primary px-5">Upload Video</button>
     </form>
 </div>
+
+<div class="container py-5">
+  <h2 class="diplay-3">Liste des vidéos téléchargées</h2>
+  {% if videos %}
+    <p>Vous avez téléchargé {{ videos|length }} vidéos</p>
+
+  <ul class="list-item">
+    {% for video in videos %}
+      <li><a href="{{ video }}">{{ video }}</a></li>
+      <li><button class="delete-video" data-name="{{ video }}">Supprimer</button></li>
+    {% endfor %}
+  </ul>
+    {% else %}
+        <p>Vous n'avez pas encore téléchargé de vidéos</p>
+    {% endif %}
+</div>
+
 {% endblock %}
