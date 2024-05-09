@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container">
+  <h1>App Django</h1>
+  <p>Upload Youtube Video</p>
+  <form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="video_url" class="form-label">Link</label>
+      <input type="text" class="form-control" id="video_url" name="video_url">
+    </div>
+    <button type="submit" class="btn btn-primary px-5">Upload Video</button>
+    </form>
+</div>
+{% endblock %}

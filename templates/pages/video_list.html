@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+ <div class="container py-5">
+    <h2 class="diplay-3">Liste des vidéos téléchargées</h2>
+  <ul class="list-item">
+    {% for video in videos %}
+      <li><a href="{{ video }}">{{ video }}</a></li>
+    {% endfor %}
+  </ul>
+ </div>
+{% endblock %}
