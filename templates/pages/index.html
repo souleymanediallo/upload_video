@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="container">
-  <h1>App Django</h1>
+  <h1>Application Django</h1>
   <p>Upload Youtube Video</p>
   <form action="" method="post" enctype="multipart/form-data">
     {% csrf_token %}
@@ -28,6 +28,7 @@
     {% else %}
         <p>Vous n'avez pas encore téléchargé de vidéos</p>
     {% endif %}
+
 </div>
 
 {% endblock %}
